@@ -1,3 +1,7 @@
+using Android.App;
+using Android.OS;
+using Android.Content;
+
 namespace AndroidApp1
 {
     [Activity(Label = "@string/app_name", MainLauncher = true)]
@@ -7,8 +11,10 @@ namespace AndroidApp1
         {
             base.OnCreate(savedInstanceState);
 
-            // Set our view from the "main" layout resource
-            SetContentView(Resource.Layout.activity_main);
+            // Redirect to the Bluetooth Connection Activity
+            var intent = new Intent(this, typeof(BluetoothConnectionActivity));
+            StartActivity(intent);
+            Finish(); // Close this activity
         }
     }
 }

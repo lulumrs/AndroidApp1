@@ -8,6 +8,9 @@
     <ApplicationId>com.companyname.AndroidApp1</ApplicationId>
     <ApplicationVersion>1</ApplicationVersion>
     <ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
+    <!-- Disable FastDev to resolve assembly loading issues -->
+    <EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
+    <AndroidEnableSGenConcurrent>true</AndroidEnableSGenConcurrent>
     <!--
       Enables trim analyzers and full trimming during Release mode.
       To learn more, see: https://learn.microsoft.com/dotnet/core/deploying/trimming/trimming-options#trimming-granularity

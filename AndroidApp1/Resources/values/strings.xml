@@ -1,4 +1,18 @@
 <resources>
-    <string name="app_name">AndroidApp1</string>
+    <string name="app_name">Robot Controller</string>
     <string name="app_text">Hello, Android!</string>
+    <string name="scan_for_devices">Scan for devices</string>
+    <string name="available_devices">Available Devices</string>
+    <string name="connect">Connect</string>
+    <string name="connecting">Connecting...</string>
+    <string name="disconnected">Disconnected</string>
+    <string name="connected">Connected</string>
+    <string name="connection_failed">Connection failed</string>
+    <string name="forward">Forward</string>
+    <string name="backward">Backward</string>
+    <string name="left">Left</string>
+    <string name="right">Right</string>
+    <string name="stop">Stop</string>
+    <string name="left_motor">Left Motor</string>
+    <string name="right_motor">Right Motor</string>
 </resources>

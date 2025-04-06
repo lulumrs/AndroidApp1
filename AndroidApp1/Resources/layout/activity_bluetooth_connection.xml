@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Header with title -->
+	<!--TextView
+        android:id="@+id/tvHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:padding="16dp"
+        android:text="@string/app_name"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:elevation="4dp" /-->
+
+    <!-- Main content container -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/tvHeader"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Status indicator -->
+        <TextView
+            android:id="@+id/tvStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/disconnected"
+            android:textColor="#FF5722"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:padding="8dp"
+            android:layout_marginBottom="8dp"
+            android:background="#FFECB3" />
+
+        <!-- Scan button with icon -->
+        <Button
+            android:id="@+id/btnScanDevices"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="@string/scan_for_devices"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:drawablePadding="8dp"
+            android:layout_marginBottom="24dp" />
+
+        <!-- Available devices section with card-like appearance -->
+        <TextView
+            android:id="@+id/tvAvailableDevicesLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/available_devices"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:padding="8dp"
+            android:background="#E0E0E0"
+            android:layout_marginBottom="8dp" />
+
+        <ListView
+            android:id="@+id/lvDevices"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.7"
+            android:background="#F5F5F5"
+            android:divider="#BDBDBD"
+            android:dividerHeight="1dp"
+            android:layout_marginBottom="16dp" />
+
+        <Button
+            android:id="@+id/btnConnect"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/connect"
+            android:enabled="false"
+            android:layout_marginBottom="16dp" />
+            
+        <!-- Debug section -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Debug Logs"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:layout_marginBottom="4dp" />
+            
+        <ScrollView
+            android:id="@+id/svDebugLogs"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.3"
+            android:background="#EFEFEF">
+            
+            <TextView
+                android:id="@+id/tvDebugLogs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:textSize="12sp"
+                android:fontFamily="monospace" />
+        </ScrollView>
+    </LinearLayout>
+
+</RelativeLayout>
