@@ -13,49 +13,56 @@
         android:textAlignment="center"
         android:layout_marginBottom="8dp" />
 
-    <!-- Left Slider -->
-    <TextView
-        android:id="@+id/tvLeftMotor"
+	<!-- Left Slider -->
+	<LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/left_motor"
+        android:layout_height="match_parent"
         android:layout_below="@id/tvConnectionStatus"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="8dp" />
+        android:orientation="vertical">
 
-    <SeekBar
-        android:id="@+id/sbLeftMotor"
-        android:layout_width="48dp"
-        android:layout_height="match_parent"
-        android:layout_below="@id/tvLeftMotor"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        android:max="508"
-        android:progress="254"
-        android:rotation="270" />
+		<TextView
+            android:id="@+id/tvLeftMotor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/left_motor"
+            android:layout_marginStart="8dp" />
 
-    <!-- Right Slider -->
-    <TextView
-        android:id="@+id/tvRightMotor"
+		<SeekBar
+            android:id="@+id/sbLeftMotor"
+            android:layout_width="300dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:max="508"
+            android:progress="254"
+            android:rotation="270" />
+	</LinearLayout>
+
+	<!-- Right Slider -->
+	<LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/right_motor"
+        android:layout_height="match_parent"
         android:layout_below="@id/tvConnectionStatus"
         android:layout_alignParentEnd="true"
-        android:layout_marginEnd="8dp" />
+        android:gravity="center"
+        android:orientation="vertical">
 
-    <SeekBar
-        android:id="@+id/sbRightMotor"
-        android:layout_width="48dp"
-        android:layout_height="match_parent"
-        android:layout_below="@id/tvRightMotor"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        android:max="508"
-        android:progress="254"
-        android:rotation="270" />
+		<TextView
+            android:id="@+id/tvRightMotor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/right_motor"
+            android:layout_marginEnd="8dp" />
+
+		<SeekBar
+            android:id="@+id/sbRightMotor"
+            android:layout_width="300dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:max="508"
+            android:progress="254"
+            android:rotation="270" />
+	</LinearLayout>
 
     <!-- Control Buttons -->
     <LinearLayout
