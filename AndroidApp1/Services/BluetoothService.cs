@@ -59,7 +59,7 @@ namespace AndroidApp1.Services
             var device = e.Device;
             Log.Debug(TAG, $"Device discovered - Name: {device.Name ?? "null"}, ID: {device.Id}");
             Log.Debug(TAG, $"  RSSI: {device.Rssi}, State: {device.State}");
-            
+
             // Try to get advertised service UUIDs
             if (device.AdvertisementRecords != null)
             {
@@ -320,33 +320,53 @@ namespace AndroidApp1.Services
                 _gattService = null;
                 _writeCharacteristic = null;
             }
-        }
-
-        public async Task<bool> SendCommandAsync(string command)
+        }    public async Task<bool> SendCommandAsync(string command)
+    {
+        if (!IsConnected || _writeCharacteristic == null)
         {
-            if (!IsConnected || _writeCharacteristic == null)
-            {
-                ErrorOccurred?.Invoke(this, "Not connected to a device");
-                return false;
-            }
-
-            // Don't send duplicate commands to optimize performance
-            if (_lastCommand == command)
-                return true;
-
-            try
-            {
-                var bytes = Encoding.UTF8.GetBytes(command);
-                await _writeCharacteristic.WriteAsync(bytes);
-                _lastCommand = command;
-                return true;
-            }
-            catch (Exception ex)
-            {
-                ErrorOccurred?.Invoke(this, "Error sending command: " + ex.Message);
-                return false;
-            }
+            ErrorOccurred?.Invoke(this, "Not connected to a device");
+            return false;
         }
+
+        // Don't send duplicate commands to optimize performance
+        if (_lastCommand == command)
+            return true;
+
+        try
+        {
+            var bytes = Encoding.UTF8.GetBytes(command);
+            await _writeCharacteristic.WriteAsync(bytes);
+            _lastCommand = command;
+            return true;
+        }
+        catch (Exception ex)
+        {
+            ErrorOccurred?.Invoke(this, "Error sending command: " + ex.Message);
+            return false;
+        }
+    }
+      // Method specifically for motor commands that bypasses the duplicate check
+    public async Task<bool> SendMotorCommandAsync(string command)
+    {
+        if (!IsConnected || _writeCharacteristic == null)
+        {
+            ErrorOccurred?.Invoke(this, "Not connected to a device");
+            return false;
+        }
+
+        try
+        {
+            var bytes = Encoding.UTF8.GetBytes(command);
+            await _writeCharacteristic.WriteAsync(bytes);
+            _lastCommand = command; // Still update the last command
+            return true;
+        }
+        catch (Exception ex)
+        {
+            ErrorOccurred?.Invoke(this, "Error sending command: " + ex.Message);
+            return false;
+        }
+    }
 
         public void Dispose()
         {

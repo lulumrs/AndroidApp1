@@ -4,12 +4,12 @@
 #include <BLE2902.h>
 
 // Define pin constants for motor control
-#define MOTOR_LEFT_EN    25  // Enable Pin for left motor
-#define MOTOR_LEFT_IN1   26  // Input 1 for left motor
-#define MOTOR_LEFT_IN2   27  // Input 2 for left motor
-#define MOTOR_RIGHT_EN   12  // Enable Pin for right motor
-#define MOTOR_RIGHT_IN1  14  // Input 1 for right motor
-#define MOTOR_RIGHT_IN2  13  // Input 2 for right motor
+#define MOTOR_LEFT_EN    5  // Enable Pin for left motor
+#define MOTOR_LEFT_IN1   0  // Input 1 for left motor
+#define MOTOR_LEFT_IN2   18  // Input 2 for left motor
+#define MOTOR_RIGHT_EN   2  // Enable Pin for right motor
+#define MOTOR_RIGHT_IN1  23  // Input 3 for right motor
+#define MOTOR_RIGHT_IN2  19  // Input 4 for right motor
 
 // BLE UUIDs
 #define SERVICE_UUID        "4FAFC201-1FB5-459E-8FCC-C5C9C331914B"
